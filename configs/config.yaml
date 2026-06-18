@@ -1,0 +1,134 @@
+# =============================================================================
+# Temporal Gait Occlusion Detection — Configuration File
+# CASIA-B Silhouette Dataset
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Dataset
+# ---------------------------------------------------------------------------
+dataset:
+  path: "/home/himanshu/CVL_VST/CASIA-B-64"          # Root path to the CASIA-B dataset
+  image_height: 128
+  image_width: 88
+  sequence_length: 30            # T: number of frames per sample
+  stride: 15                     # Sliding window stride when building index
+  min_frames: 30                 # Sequences shorter than this are dropped
+
+# ---------------------------------------------------------------------------
+# Subject Split (by subject ID, 1-based)
+# ---------------------------------------------------------------------------
+split:
+  train_end: 74                  # Subjects 1-74  → train
+  val_end: 99                    # Subjects 75-99 → validation
+  test_end: 124                  # Subjects 100-124 → test
+
+# ---------------------------------------------------------------------------
+# Occlusion Augmentation
+# ---------------------------------------------------------------------------
+occlusion:
+  enabled: true
+  # Probability that a given sequence clip will receive an occlusion event
+  occlusion_prob: 0.6
+  # Types of occlusion to sample from
+  types:
+    - rectangle
+    - random_blocks
+    - moving_temporal
+    - partial_body
+    - multi_block
+  # Rectangle occlusion params
+  rect:
+    min_ratio: 0.10
+    max_ratio: 0.45
+  # Random blocks
+  random_blocks:
+    n_blocks: 3
+    block_size_ratio: 0.15
+  # Moving temporal occlusion
+  moving:
+    speed: 5                     # pixels per frame
+  # Partial body
+  partial_body:
+    top_ratio: 0.5               # occlude top half with this probability
+  # Multi-block
+  multi_block:
+    n_blocks: 5
+    block_size_ratio: 0.12
+  # Temporal event params
+  temporal:
+    min_event_length: 5          # minimum consecutive occluded frames
+    max_event_length: 20
+    max_events_per_clip: 2
+
+# ---------------------------------------------------------------------------
+# Model
+# ---------------------------------------------------------------------------
+model:
+  backbone: "resnet18"           # resnet18 | resnet34 | resnet50
+  feature_dim: 512               # CNN output feature dim (auto for resnet18/34=512, resnet50=2048)
+  # Temporal Transformer
+  transformer:
+    hidden_dim: 256              # project features to this dim before transformer
+    num_layers: 4
+    num_heads: 8
+    dropout: 0.1resnet50
+    dim_feedforward: 512
+  # Heads
+  heads:
+    hidden_dim: 128
+
+# ---------------------------------------------------------------------------
+# Training
+# ---------------------------------------------------------------------------
+training:
+  epochs: 60
+  batch_size: 16
+  num_workers: 4
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-4
+  grad_clip: 1.0
+  # Loss weights
+  lambda_det: 1.0
+  lambda_sev: 1.0
+  # Scheduler
+  scheduler:
+    type: "cosine"               # cosine | step
+    warmup_epochs: 3
+    eta_min: 1.0e-6
+  # Mixed precision
+  amp: true
+  # Reproducibility
+  seed: 42
+  # Early stopping
+  early_stopping:
+    patience: 15
+    min_delta: 1.0e-4
+    monitor: "val_f1"            # val_loss | val_f1 | val_mae
+
+# ---------------------------------------------------------------------------
+# Checkpointing
+# ---------------------------------------------------------------------------
+checkpoint:
+  dir: "checkpoints"
+  save_best: true
+  save_last: true
+  resume: ""                     # path to checkpoint to resume from (empty = fresh start)
+
+# ---------------------------------------------------------------------------
+# Logging / Output
+# ---------------------------------------------------------------------------
+logging:
+  tensorboard_dir: "outputs/tensorboard"
+  log_file: "outputs/train.log"
+  log_interval: 10               # log every N batches
+
+output:
+  dir: "outputs"
+  visualization_dir: "outputs/visualizations"
+
+# ---------------------------------------------------------------------------
+# GPU
+# ---------------------------------------------------------------------------
+gpu:
+  device: "cuda"                 # cuda | cpu
+  cudnn_benchmark: true

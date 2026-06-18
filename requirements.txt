@@ -1,0 +1,37 @@
+# ===========================================================================
+# Temporal Gait Occlusion Detection — Python Dependencies
+# ===========================================================================
+# Install with:
+#   pip install -r requirements.txt
+#
+# Tested with Python 3.10, CUDA 11.8 / 12.1
+# ===========================================================================
+
+# Core deep learning
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0          # often installed alongside torch
+
+# Configuration
+PyYAML>=6.0
+
+# Progress bars
+tqdm>=4.66.0
+
+# TensorBoard
+tensorboard>=2.14.0
+
+# Image processing
+Pillow>=10.0.0
+imageio>=2.31.0            # for GIF export
+imageio-ffmpeg>=0.4.9      # optional: better GIF compression
+
+# Scientific computing
+numpy>=1.24.0
+scipy>=1.11.0              # optional, useful for signal processing
+
+# Plotting
+matplotlib>=3.7.0
+
+# Utilities
+omegaconf>=2.3.0           # optional: richer config management

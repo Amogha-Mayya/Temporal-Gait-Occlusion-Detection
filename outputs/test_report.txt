@@ -1,0 +1,25 @@
+============================================================
+TEMPORAL GAIT OCCLUSION DETECTION — TEST REPORT
+Date       : 2026-06-10 14:59:57
+Checkpoint : checkpoints/best_model.pth
+Config     : configs/config.yaml
+============================================================
+
+DETECTION METRICS
+----------------------------------------
+  Accuracy  : 0.9527
+  Precision : 0.9523
+  Recall    : 0.8459
+  F1 Score  : 0.8960
+
+SEVERITY REGRESSION METRICS (on occluded frames)
+----------------------------------------
+  MAE       : 0.0152
+  RMSE      : 0.0233
+
+LOSS
+----------------------------------------
+  Total     : 0.154047
+  Detection : 0.153981
+  Severity  : 0.000067
+============================================================
