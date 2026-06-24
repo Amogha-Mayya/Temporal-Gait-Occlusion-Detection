@@ -19,6 +19,7 @@
 10. [Inference](#10-inference)
 11. [Visualization](#11-visualization)
 12. [TensorBoard](#12-tensorboard)
+12.5. [Upgrade: 4-Head Model (Region + Confidence)](#125-upgrade-4-head-model-region--confidence-and-occlusion-injection-inference)
 13. [Expected Outputs](#13-expected-outputs)
 14. [Troubleshooting](#14-troubleshooting)
 
@@ -102,8 +103,8 @@ gait_occlusion/
 ├── models/
 │   ├── backbone.py             ← ResNet adapted for 1-channel input
 │   ├── transformer.py          ← Temporal TransformerEncoder
-│   ├── heads.py                ← Detection + Severity MLP heads
-│   └── model.py                ← Full model assembly + loss
+│   ├── heads.py                ← Detection + Severity + Region + Confidence heads
+│   └── model.py                ← Full model assembly + loss (2-head and 4-head)
 │
 ├── engine/
 │   ├── trainer.py              ← Training loop (AMP, grad clip)
@@ -111,19 +112,24 @@ gait_occlusion/
 │   └── inference_engine.py     ← Sliding-window inference
 │
 ├── utils/
-│   ├── metrics.py              ← Acc/P/R/F1/MAE/RMSE accumulators
-│   ├── logger.py               ← File + console + TensorBoard logger
-│   ├── visualization.py        ← GIF, grid, plot, annotation tools
+│   ├── metrics.py              ← Acc/P/R/F1/MAE/RMSE accumulators (+ region/conf)
+│   ├── confidence.py           ← Confidence target construction (calibration)
+│   ├── logger.py                ← File + console + TensorBoard logger
+│   ├── visualization.py        ← GIF, grid, plot, annotation, 4-head dashboard
 │   ├── seed.py                 ← Reproducible seed setter
 │   └── checkpoint.py           ← Save / load training checkpoints
 │
 ├── outputs/                    ← Logs, plots, TensorBoard events
 ├── checkpoints/                ← Saved model weights
+│   ├── best_model.pth          ← Original 2-head checkpoint (60 epochs)
+│   └── best_model_4heads.pth   ← 4-head checkpoint (produced by finetune_new_heads.py)
 │
 ├── train.py                    ← Main training entry point
 ├── validate.py                 ← Validation entry point
 ├── test.py                     ← Test evaluation + report generator
-├── inference.py                ← Per-frame inference on any folder
+├── inference.py                ← Per-frame inference on any folder (2-head, original)
+├── inference_v2.py             ← 4-head inference with occlusion injection (NEW)
+├── finetune_new_heads.py       ← Head-only fine-tuning for Region+Confidence (NEW)
 ├── visualize_occlusion.py      ← Occlusion visualization demo
 │
 ├── requirements.txt
@@ -271,7 +277,7 @@ checkpoints/last_model.pth    ← Last completed epoch
 ## 8. Validation
 
 ```bash
-python3 validate.py \
+python validate.py \
     --config configs/config.yaml \
     --checkpoint checkpoints/best_model.pth
 ```
@@ -416,7 +422,130 @@ Open your browser at `http://localhost:6006`.
 
 ---
 
-## 13. Expected Outputs
+## 12.5. Upgrade: 4-Head Model (Region + Confidence) and Occlusion-Injection Inference
+
+This section documents two additions made AFTER the original 60-epoch training
+run completed. They do not require retraining the backbone/transformer or the
+original detection/severity heads.
+
+### 12.5.1 What was added
+
+1. **RegionHead** — per-frame quadrant-wise occlusion detection. Four
+   independent binary outputs: `upper`, `lower`, `left`, `right`. These are
+   NOT mutually exclusive (an upper-left occlusion sets both `upper=1` and
+   `left=1`), since each is judged on an overlapping half of the frame.
+2. **ConfidenceHead** — per-frame self-confidence score in `[0, 1]`. There is
+   no natural ground truth for "confidence," so it is trained against a
+   **constructed calibration target**: `1 - calibration_error`, where
+   `calibration_error` blends detection error, severity error, and temporal
+   consistency (see `utils/confidence.py` for the exact formula). Low
+   confidence means the model's detection/severity output for that frame is
+   likely unreliable.
+3. **`inference_v2.py`** — lets you inject a synthetic occlusion (type, frame
+   range, target severity) onto any CLEAN sequence on demand, then see
+   ground-truth-vs-predicted for all four heads. Solves the "I can only feed
+   clean silhouettes with no way to check results" limitation of the
+   original `inference.py`.
+
+### 12.5.2 Step 1: Fine-tune the two new heads (one-time, fast)
+
+The new heads start randomly initialised — they must see *some* gradient
+before their output means anything. This step freezes everything else
+(backbone, transformer, original det/sev heads) and trains ONLY the two new
+small MLPs for a handful of epochs:
+
+```bash
+python finetune_new_heads.py \
+    --config configs/config.yaml \
+    --base_checkpoint checkpoints/best_model.pth \
+    --output checkpoints/best_model_4heads.pth \
+    --epochs 8
+```
+
+- Your original `checkpoints/best_model.pth` is **never modified**.
+- Output is a new file: `checkpoints/best_model_4heads.pth`, containing all
+  four heads (backbone/transformer/det/sev copied unchanged from the
+  original checkpoint, region/confidence newly trained).
+- Because only ~0.04% of parameters are trainable (two small MLPs, no CNN or
+  Transformer backward pass), this finishes in a small fraction of the time
+  the original 60-epoch run took.
+- Validation metrics per epoch include per-region accuracy/F1, macro F1
+  across the four regions, and confidence MAE/RMSE — printed and logged to
+  `outputs/finetune_heads.log` / TensorBoard
+  (`outputs/tensorboard_finetune_heads`).
+
+### 12.5.3 Step 2: Run the upgraded inference tool
+
+**Mode A — inject a synthetic occlusion you control, then compare against
+ground truth (the main new capability):**
+
+```bash
+/home/himanshu/CVL_VST/CASIA-B-64/050/nm-03/090
+
+python3 inference_v2.py \
+    --sequence /home/himanshu/CVL_VST/CASIA-B-64/050/nm-03/090 \
+    --checkpoint checkpoints/best_model_4heads.pth \
+    --mode inject \
+    --occlusion_type rectangle \
+    --start_frame 10 --end_frame 25 \
+    --target_severity 0.5 \
+    --output outputs/inference_v2/050_nm03_injected
+```
+
+`--occlusion_type` accepts the same five types used during training:
+`rectangle`, `random_blocks`, `moving_temporal`, `partial_body`,
+`multi_block`. `--target_severity` is optional — omit it to use default
+config-driven random sizing instead of targeting a specific value.
+
+**Mode B — run a sequence as-is, no injection (sanity check on real data):**
+
+```bash
+python inference_v2.py \
+    --sequence /home/himanshu/CVL_VST/CASIA-B-64/050/nm-03/090 \
+    --checkpoint checkpoints/best_model_4heads.pth \
+    --mode clean \
+    --output outputs/inference_v2/050_nm03_clean
+```
+
+**Output files** (in the `--output` directory):
+
+```
+dashboard.png          4-panel GT-vs-Predicted plot: Detection, Severity,
+                        Region (4 quadrants), Confidence
+full_overlay/*.png      per-frame rich overlay — quadrant guide drawn on
+                        the silhouette, colored border on predicted-positive
+                        regions, header/footer showing GT vs Pred for every head
+clean.gif               the original, pre-injection sequence
+occluded.gif            the sequence actually fed to the model
+paired.gif              clean | occluded side-by-side in one GIF
+predictions.csv         full per-frame table, GT + predicted, all 4 heads
+summary.txt             run summary (sequence, mode, injected params, counts)
+```
+
+A full console table is also printed showing every frame's ground truth and
+predicted values for all four heads at once.
+
+**If you only have the original 2-head checkpoint** (haven't run
+`finetune_new_heads.py` yet), you can still run `inference_v2.py` by passing
+`--base_checkpoint checkpoints/best_model.pth` instead of `--checkpoint`. The
+script builds the 4-head model on the fly, but prints a loud warning that
+region/confidence output is not yet meaningful (random initialisation).
+
+### 12.5.4 Backward compatibility notes
+
+- `models/model.py`'s `OcclusionDetectionModel.forward()` is byte-for-byte
+  unchanged and still returns the original `(det_logits, sev_preds)` tuple —
+  `train.py`, `validate.py`, `test.py`, `trainer.py`, and `evaluator.py` all
+  continue to work with zero modification.
+- The 4-head behaviour only activates when `enable_extra_heads=True` is
+  passed to `build_model()` / `OcclusionDetectionModel()`. Default is
+  `False`, reproducing the exact original architecture.
+- `data/casia_dataset.py`'s `__getitem__` now also returns a `region_labels`
+  tensor `(T, 4)` alongside the original `frames`/`det_labels`/`sev_labels`
+  keys — existing training code that only reads the original three keys is
+  unaffected.
+
+---
 
 ### Directory tree after a full training run
 

@@ -1,0 +1,100 @@
+[2026-06-24 11:15:47] [INFO] Logger initialised. Log file: outputs/finetune_heads.log
+[2026-06-24 11:15:47] [INFO] TensorBoard dir: outputs/tensorboard_finetune_heads
+[2026-06-24 11:15:47] [INFO] Device: cuda
+[2026-06-24 11:15:47] [INFO] Base checkpoint: checkpoints/best_model.pth
+[2026-06-24 11:15:50] [INFO] Trainable parameters (8 tensors):
+[2026-06-24 11:15:50] [INFO]   region_head.mlp.0.weight
+[2026-06-24 11:15:50] [INFO]   region_head.mlp.0.bias
+[2026-06-24 11:15:50] [INFO]   region_head.mlp.3.weight
+[2026-06-24 11:15:50] [INFO]   region_head.mlp.3.bias
+[2026-06-24 11:15:50] [INFO]   confidence_head.mlp.0.weight
+[2026-06-24 11:15:50] [INFO]   confidence_head.mlp.0.bias
+[2026-06-24 11:15:50] [INFO]   confidence_head.mlp.3.weight
+[2026-06-24 11:15:50] [INFO]   confidence_head.mlp.3.bias
+[2026-06-24 11:15:50] [INFO] Trainable: 66,437 / Total: 13,674,055 (0.486%)
+[2026-06-24 11:18:26] [INFO] Logger initialised. Log file: outputs/finetune_heads.log
+[2026-06-24 11:18:26] [INFO] TensorBoard dir: outputs/tensorboard_finetune_heads
+[2026-06-24 11:18:26] [INFO] Device: cuda
+[2026-06-24 11:18:26] [INFO] Base checkpoint: checkpoints/best_model.pth
+[2026-06-24 11:18:29] [INFO] Trainable parameters (8 tensors):
+[2026-06-24 11:18:29] [INFO]   region_head.mlp.0.weight
+[2026-06-24 11:18:29] [INFO]   region_head.mlp.0.bias
+[2026-06-24 11:18:29] [INFO]   region_head.mlp.3.weight
+[2026-06-24 11:18:29] [INFO]   region_head.mlp.3.bias
+[2026-06-24 11:18:29] [INFO]   confidence_head.mlp.0.weight
+[2026-06-24 11:18:29] [INFO]   confidence_head.mlp.0.bias
+[2026-06-24 11:18:29] [INFO]   confidence_head.mlp.3.weight
+[2026-06-24 11:18:29] [INFO]   confidence_head.mlp.3.bias
+[2026-06-24 11:18:29] [INFO] Trainable: 66,437 / Total: 13,674,055 (0.486%)
+[2026-06-24 11:18:29] [INFO] Train samples: 0, Val samples: 0
+[2026-06-24 11:25:51] [INFO] Logger initialised. Log file: outputs/finetune_heads.log
+[2026-06-24 11:25:51] [INFO] TensorBoard dir: outputs/tensorboard_finetune_heads
+[2026-06-24 11:25:51] [INFO] Device: cuda
+[2026-06-24 11:25:51] [INFO] Base checkpoint: checkpoints/best_model.pth
+[2026-06-24 11:25:53] [INFO] Trainable parameters (8 tensors):
+[2026-06-24 11:25:53] [INFO]   region_head.mlp.0.weight
+[2026-06-24 11:25:53] [INFO]   region_head.mlp.0.bias
+[2026-06-24 11:25:53] [INFO]   region_head.mlp.3.weight
+[2026-06-24 11:25:53] [INFO]   region_head.mlp.3.bias
+[2026-06-24 11:25:53] [INFO]   confidence_head.mlp.0.weight
+[2026-06-24 11:25:53] [INFO]   confidence_head.mlp.0.bias
+[2026-06-24 11:25:53] [INFO]   confidence_head.mlp.3.weight
+[2026-06-24 11:25:53] [INFO]   confidence_head.mlp.3.bias
+[2026-06-24 11:25:53] [INFO] Trainable: 66,437 / Total: 13,674,055 (0.486%)
+[2026-06-24 11:25:57] [INFO] Train samples: 32863, Val samples: 10615
+[2026-06-24 11:30:39] [INFO] [Epoch 0] Train  loss=0.0771  region_f1=0.9035  conf_mae=0.0346
+[2026-06-24 11:32:10] [INFO] [Epoch 0] Val    loss=0.0684  region_f1=0.9128  conf_mae=0.0289
+[2026-06-24 11:32:10] [INFO]     region_upper: acc=0.9813  f1=0.9281
+[2026-06-24 11:32:10] [INFO]     region_lower: acc=0.9763  f1=0.9084
+[2026-06-24 11:32:10] [INFO]     region_left: acc=0.9675  f1=0.8981
+[2026-06-24 11:32:10] [INFO]     region_right: acc=0.9725  f1=0.9167
+[2026-06-24 11:32:10] [INFO]   ✓ Saved new best 4-head checkpoint: checkpoints/best_model_4heads.pth (region_macro_f1=0.9128)
+[2026-06-24 11:36:16] [INFO] [Epoch 1] Train  loss=0.0655  region_f1=0.9187  conf_mae=0.0307
+[2026-06-24 11:37:34] [INFO] [Epoch 1] Val    loss=0.0661  region_f1=0.9180  conf_mae=0.0300
+[2026-06-24 11:37:34] [INFO]     region_upper: acc=0.9798  f1=0.9251
+[2026-06-24 11:37:34] [INFO]     region_lower: acc=0.9785  f1=0.9165
+[2026-06-24 11:37:34] [INFO]     region_left: acc=0.9702  f1=0.9100
+[2026-06-24 11:37:34] [INFO]     region_right: acc=0.9733  f1=0.9205
+[2026-06-24 11:37:34] [INFO]   ✓ Saved new best 4-head checkpoint: checkpoints/best_model_4heads.pth (region_macro_f1=0.9180)
+[2026-06-24 11:41:40] [INFO] [Epoch 2] Train  loss=0.0637  region_f1=0.9211  conf_mae=0.0300
+[2026-06-24 11:42:53] [INFO] [Epoch 2] Val    loss=0.0612  region_f1=0.9246  conf_mae=0.0270
+[2026-06-24 11:42:53] [INFO]     region_upper: acc=0.9847  f1=0.9422
+[2026-06-24 11:42:53] [INFO]     region_lower: acc=0.9805  f1=0.9255
+[2026-06-24 11:42:53] [INFO]     region_left: acc=0.9694  f1=0.9052
+[2026-06-24 11:42:53] [INFO]     region_right: acc=0.9744  f1=0.9254
+[2026-06-24 11:42:53] [INFO]   ✓ Saved new best 4-head checkpoint: checkpoints/best_model_4heads.pth (region_macro_f1=0.9246)
+[2026-06-24 11:46:59] [INFO] [Epoch 3] Train  loss=0.0629  region_f1=0.9223  conf_mae=0.0293
+[2026-06-24 11:48:17] [INFO] [Epoch 3] Val    loss=0.0639  region_f1=0.9218  conf_mae=0.0296
+[2026-06-24 11:48:17] [INFO]     region_upper: acc=0.9856  f1=0.9449
+[2026-06-24 11:48:17] [INFO]     region_lower: acc=0.9792  f1=0.9216
+[2026-06-24 11:48:17] [INFO]     region_left: acc=0.9681  f1=0.9000
+[2026-06-24 11:48:17] [INFO]     region_right: acc=0.9735  f1=0.9206
+[2026-06-24 11:52:23] [INFO] [Epoch 4] Train  loss=0.0612  region_f1=0.9225  conf_mae=0.0289
+[2026-06-24 11:53:41] [INFO] [Epoch 4] Val    loss=0.0677  region_f1=0.9174  conf_mae=0.0306
+[2026-06-24 11:53:41] [INFO]     region_upper: acc=0.9825  f1=0.9293
+[2026-06-24 11:53:41] [INFO]     region_lower: acc=0.9769  f1=0.9140
+[2026-06-24 11:53:41] [INFO]     region_left: acc=0.9696  f1=0.9054
+[2026-06-24 11:53:41] [INFO]     region_right: acc=0.9741  f1=0.9208
+[2026-06-24 11:57:48] [INFO] [Epoch 5] Train  loss=0.0606  region_f1=0.9238  conf_mae=0.0281
+[2026-06-24 11:59:10] [INFO] [Epoch 5] Val    loss=0.0611  region_f1=0.9254  conf_mae=0.0270
+[2026-06-24 11:59:10] [INFO]     region_upper: acc=0.9856  f1=0.9449
+[2026-06-24 11:59:10] [INFO]     region_lower: acc=0.9807  f1=0.9238
+[2026-06-24 11:59:10] [INFO]     region_left: acc=0.9707  f1=0.9102
+[2026-06-24 11:59:10] [INFO]     region_right: acc=0.9747  f1=0.9226
+[2026-06-24 11:59:11] [INFO]   ✓ Saved new best 4-head checkpoint: checkpoints/best_model_4heads.pth (region_macro_f1=0.9254)
+[2026-06-24 12:03:27] [INFO] [Epoch 6] Train  loss=0.0606  region_f1=0.9243  conf_mae=0.0279
+[2026-06-24 12:04:48] [INFO] [Epoch 6] Val    loss=0.0613  region_f1=0.9240  conf_mae=0.0246
+[2026-06-24 12:04:48] [INFO]     region_upper: acc=0.9850  f1=0.9420
+[2026-06-24 12:04:48] [INFO]     region_lower: acc=0.9809  f1=0.9267
+[2026-06-24 12:04:48] [INFO]     region_left: acc=0.9707  f1=0.9084
+[2026-06-24 12:04:48] [INFO]     region_right: acc=0.9735  f1=0.9188
+[2026-06-24 12:09:12] [INFO] [Epoch 7] Train  loss=0.0608  region_f1=0.9247  conf_mae=0.0277
+[2026-06-24 12:10:33] [INFO] [Epoch 7] Val    loss=0.0639  region_f1=0.9193  conf_mae=0.0392
+[2026-06-24 12:10:33] [INFO]     region_upper: acc=0.9831  f1=0.9335
+[2026-06-24 12:10:33] [INFO]     region_lower: acc=0.9792  f1=0.9210
+[2026-06-24 12:10:33] [INFO]     region_left: acc=0.9696  f1=0.9060
+[2026-06-24 12:10:33] [INFO]     region_right: acc=0.9730  f1=0.9169
+[2026-06-24 12:10:33] [INFO] Head-only fine-tuning complete.
+[2026-06-24 12:10:33] [INFO] Best region macro F1: 0.9254
+[2026-06-24 12:10:33] [INFO] 4-head checkpoint saved at: checkpoints/best_model_4heads.pth
+[2026-06-24 12:10:33] [INFO] Original checkpoint UNCHANGED at: checkpoints/best_model.pth

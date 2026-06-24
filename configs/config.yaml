@@ -71,7 +71,7 @@ model:
     hidden_dim: 256              # project features to this dim before transformer
     num_layers: 4
     num_heads: 8
-    dropout: 0.1resnet50
+    dropout: 0.1
     dim_feedforward: 512
   # Heads
   heads:
@@ -104,6 +104,15 @@ training:
     patience: 15
     min_delta: 1.0e-4
     monitor: "val_f1"            # val_loss | val_f1 | val_mae
+
+# ---------------------------------------------------------------------------
+# Extra Heads (Region-wise occlusion + Confidence) — added post-training
+# Used only by finetune_new_heads.py and inference_v2.py; the original
+# 60-epoch training run never used these.
+# ---------------------------------------------------------------------------
+extra_heads:
+  lambda_region: 1.0
+  lambda_conf: 1.0
 
 # ---------------------------------------------------------------------------
 # Checkpointing

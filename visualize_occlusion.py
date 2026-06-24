@@ -117,7 +117,7 @@ def main():
 
     # ---- Load clean and occluded sequences ---------------------------------
     clean_frames = dataset.load_clean_sequence(idx)
-    occ_frames, det_labels, sev_labels = dataset.load_occluded_sequence(idx)
+    occ_frames, det_labels, sev_labels, region_labels = dataset.load_occluded_sequence(idx)
     T = len(clean_frames)
     print(f"  Frames: {T}  |  Occluded: {sum(det_labels)}/{T}")
 
