@@ -32,9 +32,9 @@ To avoid expensive manual annotation, realistic synthetic occlusions are generat
 
 ## 🏗️ Architecture
 
-<p align="center">
+<!-- <p align="center">
 <img src="assets/architecture.png" width="950">
-</p>
+</p> -->
 
 The complete framework consists of the following stages:
 
