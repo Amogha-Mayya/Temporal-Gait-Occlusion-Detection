@@ -1,6 +1,6 @@
 Sequence: /home/himanshu/CVL_VST/CASIA-B-64/050/nm-03/090
 Mode: inject
-Injected occlusion: partial_body, frames [10,25], target_severity=0.5
+Injected occlusion: random_blocks, frames [10,25], target_severity=0.5
 Heads trained: True
 Frames: 44
 GT occluded frames: 16
