@@ -1,0 +1,151 @@
+# =============================================================================
+# Temporal Gait Occlusion Detection — OU-MVLP Configuration
+# =============================================================================
+# Drop-in replacement for configs/config.yaml.
+# Only sections that differ from CASIA-B are explained with comments.
+# Everything else (model, training, occlusion) is identical — same architecture,
+# same hyperparameters, same occlusion strategy.
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Dataset
+# ---------------------------------------------------------------------------
+dataset:
+  path: "/home/himanshu/OU-MVLP"          # ← CHANGE THIS to your OU-MVLP root path
+  image_height: 128
+  image_width: 88                # Resize all frames to 128×88 (same as CASIA-B)
+  sequence_length: 30
+  stride: 15
+  min_frames: 30
+
+  # Optional: restrict to specific views or sequence indices.
+  # Default (null) = use ALL views and BOTH sequence indices (00 and 01).
+  # To use only side views: views: ["090", "270"]
+  # To use only forward sequences: seq_indices: ["00"]
+  views: ["000", "015", "030", "045", "060", "075"]
+  seq_indices: null
+
+# ---------------------------------------------------------------------------
+# Subject Split
+# ---------------------------------------------------------------------------
+# OU-MVLP has 10,307 subjects (IDs 1–10307).
+# Official protocol: 1–5153 train, 5154–10307 test (no val split).
+# We carve a validation set from the second half of the training subjects.
+#
+# If you want to follow the OFFICIAL protocol exactly (for fair comparison
+# with published results), set:
+#   train_end: 5153
+#   val_end:   5153     ← val == empty, model will only train/test
+#   test_end:  10307
+# ---------------------------------------------------------------------------
+split:
+  train_end: 4000        # Subjects 1–4000      → train  (4,000 subjects)
+  val_end: 5153          # Subjects 4001–5153   → val    (1,153 subjects)
+  test_end: 10307        # Subjects 5154–10307  → test   (5,154 subjects)
+
+# ---------------------------------------------------------------------------
+# Occlusion Augmentation (identical to CASIA-B config)
+# ---------------------------------------------------------------------------
+occlusion:
+  enabled: true
+  occlusion_prob: 0.6
+  types:
+    - rectangle
+    - random_blocks
+    - moving_temporal
+    - partial_body
+    - multi_block
+  rect:
+    min_ratio: 0.10
+    max_ratio: 0.45
+  random_blocks:
+    n_blocks: 3
+    block_size_ratio: 0.15
+  moving:
+    speed: 5
+  partial_body:
+    top_ratio: 0.5
+  multi_block:
+    n_blocks: 5
+    block_size_ratio: 0.12
+  temporal:
+    min_event_length: 5
+    max_event_length: 20
+    max_events_per_clip: 2
+
+# ---------------------------------------------------------------------------
+# Model (identical to CASIA-B — same architecture)
+# ---------------------------------------------------------------------------
+model:
+  backbone: "resnet18"
+  feature_dim: 512
+  transformer:
+    hidden_dim: 256
+    num_layers: 4
+    num_heads: 8
+    dropout: 0.1
+    dim_feedforward: 512
+  heads:
+    hidden_dim: 128
+
+# ---------------------------------------------------------------------------
+# Training
+# ---------------------------------------------------------------------------
+# dhs reduced slightly from 60 — OU-MVLP has 83× more subjects so each
+# epoch sees far more data; 40 epochs is typically sufficient. Increase if
+# you see the validation metric still improving.
+# ---------------------------------------------------------------------------
+training:
+  epochs: 30
+  batch_size: 32
+  num_workers: 8
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-4
+  grad_clip: 1.0
+  lambda_det: 1.0
+  lambda_sev: 1.0
+  scheduler:
+    type: "cosine"
+    warmup_epochs: 3
+    eta_min: 1.0e-6
+  amp: true
+  seed: 42
+  early_stopping:
+    patience: 10          # Slightly tighter — OU-MVLP epochs take longer
+    min_delta: 1.0e-4
+    monitor: "val_f1"
+
+# ---------------------------------------------------------------------------
+# Extra Heads (Region + Confidence — used by finetune_new_heads.py)
+# ---------------------------------------------------------------------------
+extra_heads:
+  lambda_region: 1.0
+  lambda_conf: 1.0
+
+# ---------------------------------------------------------------------------
+# Checkpointing
+# ---------------------------------------------------------------------------
+checkpoint:
+  dir: "checkpoints/oumvlp"        # Separate from CASIA-B checkpoints
+  save_best: true
+  save_last: true
+  resume: ""
+
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
+logging:
+  tensorboard_dir: "outputs/tensorboard_oumvlp"
+  log_file: "outputs/oumvlp_train.log"
+  log_interval: 50                  # Log less frequently — larger dataset
+
+output:
+  dir: "outputs"
+  visualization_dir: "outputs/visualizations_oumvlp"
+
+# ---------------------------------------------------------------------------
+# GPU
+# ---------------------------------------------------------------------------
+gpu:
+  device: "cuda"
+  cudnn_benchmark: true
