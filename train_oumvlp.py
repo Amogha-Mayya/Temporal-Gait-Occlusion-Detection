@@ -6,8 +6,8 @@ Training entry point for OU-MVLP. Identical to train.py in every way except
 it uses OUMVLPDataset instead of CasiaGaitDataset.
 
 Usage:
-    python train_oumvlp.py --config configs/oumvlp.yaml
-    python train_oumvlp.py --config configs/oumvlp.yaml --resume checkpoints/oumvlp/last_model.pth
+    python3 train_oumvlp.py --config configs/oumvlp.yaml
+    python3 train_oumvlp.py --config configs/oumvlp.yaml --resume checkpoints/oumvlp/last_model.pth
 """
 
 import argparse
