@@ -98,3 +98,64 @@
 [2026-06-24 12:10:33] [INFO] Best region macro F1: 0.9254
 [2026-06-24 12:10:33] [INFO] 4-head checkpoint saved at: checkpoints/best_model_4heads.pth
 [2026-06-24 12:10:33] [INFO] Original checkpoint UNCHANGED at: checkpoints/best_model.pth
+[2026-07-13 11:04:51] [INFO] Logger initialised. Log file: outputs/finetune_heads.log
+[2026-07-13 11:04:51] [INFO] TensorBoard dir: outputs/tensorboard_finetune_heads
+[2026-07-13 11:04:51] [INFO] Device: cuda
+[2026-07-13 11:04:51] [INFO] Base checkpoint: checkpoints/oumvlp/best_model.pth
+[2026-07-13 11:04:54] [INFO] Trainable parameters (8 tensors):
+[2026-07-13 11:04:54] [INFO]   region_head.mlp.0.weight
+[2026-07-13 11:04:54] [INFO]   region_head.mlp.0.bias
+[2026-07-13 11:04:54] [INFO]   region_head.mlp.3.weight
+[2026-07-13 11:04:54] [INFO]   region_head.mlp.3.bias
+[2026-07-13 11:04:54] [INFO]   confidence_head.mlp.0.weight
+[2026-07-13 11:04:54] [INFO]   confidence_head.mlp.0.bias
+[2026-07-13 11:04:54] [INFO]   confidence_head.mlp.3.weight
+[2026-07-13 11:04:54] [INFO]   confidence_head.mlp.3.bias
+[2026-07-13 11:04:54] [INFO] Trainable: 66,437 / Total: 13,674,055 (0.486%)
+[2026-07-13 11:04:54] [INFO] Train samples: 0, Val samples: 0
+[2026-07-13 11:17:52] [INFO] Logger initialised. Log file: outputs/finetune_heads.log
+[2026-07-13 11:17:52] [INFO] TensorBoard dir: outputs/tensorboard_finetune_heads
+[2026-07-13 11:17:52] [INFO] Device: cuda
+[2026-07-13 11:17:52] [INFO] Base checkpoint: checkpoints/oumvlp/best_model.pth
+[2026-07-13 11:17:55] [INFO] Trainable parameters (8 tensors):
+[2026-07-13 11:17:55] [INFO]   region_head.mlp.0.weight
+[2026-07-13 11:17:55] [INFO]   region_head.mlp.0.bias
+[2026-07-13 11:17:55] [INFO]   region_head.mlp.3.weight
+[2026-07-13 11:17:55] [INFO]   region_head.mlp.3.bias
+[2026-07-13 11:17:55] [INFO]   confidence_head.mlp.0.weight
+[2026-07-13 11:17:55] [INFO]   confidence_head.mlp.0.bias
+[2026-07-13 11:17:55] [INFO]   confidence_head.mlp.3.weight
+[2026-07-13 11:17:55] [INFO]   confidence_head.mlp.3.bias
+[2026-07-13 11:17:55] [INFO] Trainable: 66,437 / Total: 13,674,055 (0.486%)
+[2026-07-13 11:18:13] [INFO] Train samples: 143508, Val samples: 40470
+[2026-07-13 11:21:40] [INFO] Logger initialised. Log file: outputs/finetune_heads.log
+[2026-07-13 11:21:40] [INFO] TensorBoard dir: outputs/tensorboard_finetune_heads
+[2026-07-13 11:21:40] [INFO] Device: cuda
+[2026-07-13 11:21:40] [INFO] Base checkpoint: checkpoints/oumvlp/best_model.pth
+[2026-07-13 11:21:41] [INFO] Trainable parameters (8 tensors):
+[2026-07-13 11:21:41] [INFO]   region_head.mlp.0.weight
+[2026-07-13 11:21:41] [INFO]   region_head.mlp.0.bias
+[2026-07-13 11:21:41] [INFO]   region_head.mlp.3.weight
+[2026-07-13 11:21:41] [INFO]   region_head.mlp.3.bias
+[2026-07-13 11:21:41] [INFO]   confidence_head.mlp.0.weight
+[2026-07-13 11:21:41] [INFO]   confidence_head.mlp.0.bias
+[2026-07-13 11:21:41] [INFO]   confidence_head.mlp.3.weight
+[2026-07-13 11:21:41] [INFO]   confidence_head.mlp.3.bias
+[2026-07-13 11:21:41] [INFO] Trainable: 66,437 / Total: 13,674,055 (0.486%)
+[2026-07-13 11:22:00] [INFO] Train samples: 143508, Val samples: 40470
+[2026-07-13 11:26:19] [INFO] Logger initialised. Log file: outputs/finetune_heads.log
+[2026-07-13 11:26:19] [INFO] TensorBoard dir: outputs/tensorboard_finetune_heads
+[2026-07-13 11:26:19] [INFO] Device: cuda
+[2026-07-13 11:26:19] [INFO] Base checkpoint: checkpoints/oumvlp/best_model.pth
+[2026-07-13 11:26:20] [INFO] Trainable parameters (8 tensors):
+[2026-07-13 11:26:20] [INFO]   region_head.mlp.0.weight
+[2026-07-13 11:26:20] [INFO]   region_head.mlp.0.bias
+[2026-07-13 11:26:20] [INFO]   region_head.mlp.3.weight
+[2026-07-13 11:26:20] [INFO]   region_head.mlp.3.bias
+[2026-07-13 11:26:20] [INFO]   confidence_head.mlp.0.weight
+[2026-07-13 11:26:20] [INFO]   confidence_head.mlp.0.bias
+[2026-07-13 11:26:20] [INFO]   confidence_head.mlp.3.weight
+[2026-07-13 11:26:20] [INFO]   confidence_head.mlp.3.bias
+[2026-07-13 11:26:20] [INFO] Trainable: 66,437 / Total: 13,674,055 (0.486%)
+[2026-07-13 11:26:39] [INFO] Train samples: 143508, Val samples: 40470
+[2026-07-13 13:49:48] [INFO] [Epoch 0] Train  loss=0.0637  region_f1=0.8059  conf_mae=0.0629

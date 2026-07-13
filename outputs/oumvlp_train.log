@@ -84,3 +84,76 @@
 [2026-07-08 13:10:29] [INFO] [Epoch 000] Train  loss=0.4201  f1=0.4831  mae=0.0396
 [2026-07-08 13:48:13] [INFO] [Epoch 000] Val    loss=0.4042  acc=0.8419  f1=0.5204  mae=0.0211  rmse=0.0421
 [2026-07-08 13:48:13] [INFO]   ✓ Saved best model (epoch=0, f1=0.5204)
+[2026-07-08 15:59:33] [INFO] [Epoch 001] Train  loss=0.4037  f1=0.5172  mae=0.0256
+[2026-07-08 16:33:44] [INFO] [Epoch 001] Val    loss=0.3953  acc=0.8468  f1=0.5414  mae=0.0197  rmse=0.0398
+[2026-07-08 16:33:45] [INFO]   ✓ Saved best model (epoch=1, f1=0.5414)
+[2026-07-08 18:31:34] [INFO] [Epoch 002] Train  loss=0.4003  f1=0.5261  mae=0.0241
+[2026-07-08 19:03:48] [INFO] [Epoch 002] Val    loss=0.3943  acc=0.8467  f1=0.5345  mae=0.0259  rmse=0.0564
+[2026-07-08 20:57:44] [INFO] [Epoch 003] Train  loss=0.3941  f1=0.5417  mae=0.0221
+[2026-07-08 21:28:51] [INFO] [Epoch 003] Val    loss=0.3890  acc=0.8506  f1=0.5620  mae=0.0182  rmse=0.0373
+[2026-07-08 21:28:51] [INFO]   ✓ Saved best model (epoch=3, f1=0.5620)
+[2026-07-08 23:20:46] [INFO] [Epoch 004] Train  loss=0.3910  f1=0.5495  mae=0.0210
+[2026-07-08 23:52:26] [INFO] [Epoch 004] Val    loss=0.3845  acc=0.8528  f1=0.5578  mae=0.0234  rmse=0.0488
+[2026-07-09 01:45:01] [INFO] [Epoch 005] Train  loss=0.3904  f1=0.5517  mae=0.0199
+[2026-07-09 02:16:46] [INFO] [Epoch 005] Val    loss=0.3918  acc=0.8485  f1=0.5672  mae=0.0174  rmse=0.0367
+[2026-07-09 02:16:46] [INFO]   ✓ Saved best model (epoch=5, f1=0.5672)
+[2026-07-09 04:08:01] [INFO] [Epoch 006] Train  loss=0.3858  f1=0.5618  mae=0.0197
+[2026-07-09 04:39:12] [INFO] [Epoch 006] Val    loss=0.3840  acc=0.8524  f1=0.5686  mae=0.0174  rmse=0.0368
+[2026-07-09 04:39:13] [INFO]   ✓ Saved best model (epoch=6, f1=0.5686)
+[2026-07-09 06:31:58] [INFO] [Epoch 007] Train  loss=0.3871  f1=0.5578  mae=0.0186
+[2026-07-09 07:03:52] [INFO] [Epoch 007] Val    loss=0.3859  acc=0.8510  f1=0.5686  mae=0.0147  rmse=0.0312
+[2026-07-09 07:03:53] [INFO]   ✓ Saved best model (epoch=7, f1=0.5686)
+[2026-07-09 08:56:25] [INFO] [Epoch 008] Train  loss=0.3856  f1=0.5614  mae=0.0179
+[2026-07-09 09:27:51] [INFO] [Epoch 008] Val    loss=0.3807  acc=0.8542  f1=0.5768  mae=0.0150  rmse=0.0312
+[2026-07-09 09:27:52] [INFO]   ✓ Saved best model (epoch=8, f1=0.5768)
+[2026-07-09 11:23:13] [INFO] [Epoch 009] Train  loss=0.3837  f1=0.5654  mae=0.0176
+[2026-07-09 11:55:21] [INFO] [Epoch 009] Val    loss=0.3795  acc=0.8546  f1=0.5704  mae=0.0146  rmse=0.0307
+[2026-07-09 13:58:48] [INFO] [Epoch 010] Train  loss=0.3804  f1=0.5695  mae=0.0176
+[2026-07-09 14:36:42] [INFO] [Epoch 010] Val    loss=0.3771  acc=0.8554  f1=0.5764  mae=0.0145  rmse=0.0315
+[2026-07-09 16:50:06] [INFO] [Epoch 011] Train  loss=0.3844  f1=0.5656  mae=0.0166
+[2026-07-09 17:25:42] [INFO] [Epoch 011] Val    loss=0.3788  acc=0.8541  f1=0.5783  mae=0.0142  rmse=0.0305
+[2026-07-09 17:25:43] [INFO]   ✓ Saved best model (epoch=11, f1=0.5783)
+[2026-07-09 19:26:05] [INFO] [Epoch 012] Train  loss=0.3804  f1=0.5719  mae=0.0162
+[2026-07-09 20:01:26] [INFO] [Epoch 012] Val    loss=0.3797  acc=0.8538  f1=0.5748  mae=0.0151  rmse=0.0327
+[2026-07-09 21:58:18] [INFO] [Epoch 013] Train  loss=0.3820  f1=0.5698  mae=0.0160
+[2026-07-09 22:31:47] [INFO] [Epoch 013] Val    loss=0.3755  acc=0.8563  f1=0.5790  mae=0.0131  rmse=0.0277
+[2026-07-09 22:31:47] [INFO]   ✓ Saved best model (epoch=13, f1=0.5790)
+[2026-07-10 00:31:52] [INFO] [Epoch 014] Train  loss=0.3804  f1=0.5744  mae=0.0157
+[2026-07-10 01:05:33] [INFO] [Epoch 014] Val    loss=0.3781  acc=0.8559  f1=0.5833  mae=0.0134  rmse=0.0290
+[2026-07-10 01:05:34] [INFO]   ✓ Saved best model (epoch=14, f1=0.5833)
+[2026-07-10 03:05:05] [INFO] [Epoch 015] Train  loss=0.3807  f1=0.5743  mae=0.0152
+[2026-07-10 03:37:57] [INFO] [Epoch 015] Val    loss=0.3786  acc=0.8545  f1=0.5825  mae=0.0122  rmse=0.0264
+[2026-07-10 05:35:56] [INFO] [Epoch 016] Train  loss=0.3783  f1=0.5758  mae=0.0149
+[2026-07-10 06:08:41] [INFO] [Epoch 016] Val    loss=0.3773  acc=0.8548  f1=0.5787  mae=0.0137  rmse=0.0291
+[2026-07-10 08:03:57] [INFO] [Epoch 017] Train  loss=0.3781  f1=0.5775  mae=0.0146
+[2026-07-10 08:36:47] [INFO] [Epoch 017] Val    loss=0.3747  acc=0.8567  f1=0.5853  mae=0.0119  rmse=0.0256
+[2026-07-10 08:36:47] [INFO]   ✓ Saved best model (epoch=17, f1=0.5853)
+[2026-07-10 10:31:18] [INFO] [Epoch 018] Train  loss=0.3768  f1=0.5792  mae=0.0143
+[2026-07-10 11:04:07] [INFO] [Epoch 018] Val    loss=0.3717  acc=0.8583  f1=0.5915  mae=0.0118  rmse=0.0252
+[2026-07-10 11:04:07] [INFO]   ✓ Saved best model (epoch=18, f1=0.5915)
+[2026-07-10 13:04:53] [INFO] [Epoch 019] Train  loss=0.3784  f1=0.5779  mae=0.0139
+[2026-07-10 13:38:01] [INFO] [Epoch 019] Val    loss=0.3755  acc=0.8565  f1=0.5840  mae=0.0115  rmse=0.0250
+[2026-07-10 15:45:54] [INFO] [Epoch 020] Train  loss=0.3767  f1=0.5798  mae=0.0136
+[2026-07-10 16:21:58] [INFO] [Epoch 020] Val    loss=0.3744  acc=0.8565  f1=0.5865  mae=0.0111  rmse=0.0236
+[2026-07-10 18:36:41] [INFO] [Epoch 021] Train  loss=0.3756  f1=0.5823  mae=0.0134
+[2026-07-10 19:15:35] [INFO] [Epoch 021] Val    loss=0.3741  acc=0.8570  f1=0.5869  mae=0.0110  rmse=0.0242
+[2026-07-10 21:17:23] [INFO] [Epoch 022] Train  loss=0.3744  f1=0.5819  mae=0.0132
+[2026-07-10 21:52:19] [INFO] [Epoch 022] Val    loss=0.3762  acc=0.8567  f1=0.5871  mae=0.0104  rmse=0.0225
+[2026-07-10 23:54:59] [INFO] [Epoch 023] Train  loss=0.3750  f1=0.5815  mae=0.0130
+[2026-07-11 00:27:51] [INFO] [Epoch 023] Val    loss=0.3743  acc=0.8573  f1=0.5859  mae=0.0105  rmse=0.0230
+[2026-07-11 02:23:55] [INFO] [Epoch 024] Train  loss=0.3745  f1=0.5843  mae=0.0127
+[2026-07-11 02:57:42] [INFO] [Epoch 024] Val    loss=0.3729  acc=0.8577  f1=0.5929  mae=0.0104  rmse=0.0221
+[2026-07-11 02:57:43] [INFO]   ✓ Saved best model (epoch=24, f1=0.5929)
+[2026-07-11 04:53:51] [INFO] [Epoch 025] Train  loss=0.3760  f1=0.5820  mae=0.0126
+[2026-07-11 05:25:43] [INFO] [Epoch 025] Val    loss=0.3735  acc=0.8578  f1=0.5889  mae=0.0101  rmse=0.0222
+[2026-07-11 07:15:54] [INFO] [Epoch 026] Train  loss=0.3742  f1=0.5850  mae=0.0126
+[2026-07-11 07:47:06] [INFO] [Epoch 026] Val    loss=0.3718  acc=0.8585  f1=0.5908  mae=0.0103  rmse=0.0222
+[2026-07-11 09:37:52] [INFO] [Epoch 027] Train  loss=0.3730  f1=0.5860  mae=0.0126
+[2026-07-11 10:09:43] [INFO] [Epoch 027] Val    loss=0.3726  acc=0.8578  f1=0.5920  mae=0.0101  rmse=0.0218
+[2026-07-11 12:00:38] [INFO] [Epoch 028] Train  loss=0.3729  f1=0.5870  mae=0.0125
+[2026-07-11 12:34:01] [INFO] [Epoch 028] Val    loss=0.3714  acc=0.8583  f1=0.5948  mae=0.0103  rmse=0.0226
+[2026-07-11 12:34:02] [INFO]   ✓ Saved best model (epoch=28, f1=0.5948)
+[2026-07-11 14:32:07] [INFO] [Epoch 029] Train  loss=0.3752  f1=0.5820  mae=0.0123
+[2026-07-11 15:03:07] [INFO] [Epoch 029] Val    loss=0.3731  acc=0.8574  f1=0.5909  mae=0.0104  rmse=0.0230
+[2026-07-11 15:03:07] [INFO] Training complete.
+[2026-07-11 15:03:07] [INFO] Best checkpoint: checkpoints/oumvlp/best_model.pth
