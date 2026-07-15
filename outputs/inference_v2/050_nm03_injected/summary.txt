@@ -1,7 +1,7 @@
-Sequence: /home/himanshu/CVL_VST/CASIA-B-64/050/nm-03/090
+Sequence: /home/himanshu/OU-MVLP/Silhouette_270-00/00001
 Mode: inject
-Injected occlusion: random_blocks, frames [10,25], target_severity=0.5
+Injected occlusion: rectangle, frames [10,20], target_severity=0.5
 Heads trained: True
-Frames: 44
-GT occluded frames: 16
-Predicted occluded frames: 16
+Frames: 80
+GT occluded frames: 11
+Predicted occluded frames: 11
