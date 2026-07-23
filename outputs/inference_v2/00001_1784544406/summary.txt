@@ -1,0 +1,7 @@
+Sequence: /home/himanshu/OU-MVLP/Silhouette_000-00/00001
+Mode: inject
+Injected occlusion: multi_block, frames [10,40], target_severity=0.4
+Heads trained: True
+Frames: 130
+GT occluded frames: 31
+Predicted occluded frames: 130

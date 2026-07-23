@@ -1,0 +1,7 @@
+Sequence: /home/himanshu/AMOGHA-DIRECTORY/severity-folder/assets/00001/forward
+Mode: inject
+Injected occlusion: rectangle, frames [10,20], target_severity=0.5
+Heads trained: True
+Frames: 59
+GT occluded frames: 11
+Predicted occluded frames: 11
