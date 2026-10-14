@@ -164,9 +164,10 @@ class RegionConfidenceMetricAccumulator:
         results["confidence_mae"]  = conf_metrics["mae"]
         results["confidence_rmse"] = conf_metrics["rmse"]
 
-        results["loss"]        = float(np.mean(self._losses)) if self._losses else 0.0
+        # results["loss"]        = float(np.mean(self._losses)) if self._losses else 0.0
+        results["loss"]        = float(np.mean(self._losses))        if self._losses else 0.0
         results["region_loss"] = float(np.mean(self._region_losses)) if self._region_losses else 0.0
-        results["conf_loss"]   = float(np.mean(self._conf_losses)) if self._conf_losses else 0.0
+        results["conf_loss"]   = float(np.mean(self._conf_losses))   if self._conf_losses else 0.0
 
         return results
 

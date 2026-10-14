@@ -1,0 +1,135 @@
+# =============================================================================
+# Temporal Gait Occlusion Detection — SUSTech1K Configuration
+# =============================================================================
+
+dataset:
+  path: "/home/himanshu/sustek-data/SUSTech1K-Released-2023"
+  image_height: 128
+  image_width: 88
+  sequence_length: 30
+  stride: 15
+  min_frames: 30
+  eval_stride: 30        # Larger stride for OC eval — fewer redundant windows
+
+  # Silhouette folder: Sils_aligned (recommended) or Sils_raw
+  sil_folder: "Sils_aligned"
+
+  # Conditions used during TRAINING (synthetic injection on NM only)
+  train_conditions:
+    - "00-nm"
+
+  # Conditions used during NATURAL OCCLUSION EVALUATION
+  # oc_conditions are defined in the dataset class — don't change here
+  # but you can restrict views if needed:
+  views: null            # null = all 12 views
+
+# ---------------------------------------------------------------------------
+# Subject Split
+# ---------------------------------------------------------------------------
+# Official SUSTech1K protocol:
+#   Train: 0000–0249  (250 subjects)
+#   Test:  0250–1049  (800 subjects)
+#
+# We use the official split exactly. No validation split since the dataset
+# is small — use test set for monitoring or carve a small val from train:
+#   val_end: 199 → train=0000–0199, val=0200–0249, test=0250–1049
+# ---------------------------------------------------------------------------
+split:
+  train_end: 249         # Subjects 0000–0249 → train (250 subjects)
+  val_end: 249           # val_end == train_end → no val split (official)
+  test_end: 1049         # Subjects 0250–1049 → test (800 subjects)
+
+# ---------------------------------------------------------------------------
+# Occlusion Augmentation — same as CASIA-B and OU-MVLP
+# ---------------------------------------------------------------------------
+occlusion:
+  enabled: true
+  occlusion_prob: 0.6
+  types:
+    - rectangle
+    - random_blocks
+    - moving_temporal
+    - partial_body
+    - multi_block
+  rect:
+    min_ratio: 0.10
+    max_ratio: 0.45
+  random_blocks:
+    n_blocks: 3
+    block_size_ratio: 0.15
+  moving:
+    speed: 5
+  partial_body:
+    top_ratio: 0.5
+  multi_block:
+    n_blocks: 5
+    block_size_ratio: 0.12
+  temporal:
+    min_event_length: 5
+    max_event_length: 20
+    max_events_per_clip: 2
+
+# ---------------------------------------------------------------------------
+# Model — identical architecture
+# ---------------------------------------------------------------------------
+model:
+  backbone: "resnet18"
+  feature_dim: 512
+  transformer:
+    hidden_dim: 256
+    num_layers: 4
+    num_heads: 8
+    dropout: 0.1
+    dim_feedforward: 512
+  heads:
+    hidden_dim: 128
+
+# ---------------------------------------------------------------------------
+# Training
+# ---------------------------------------------------------------------------
+# SUSTech1K has 250 train subjects × 12 views × ~128 frames.
+# With stride=15 and seq_length=30 that's roughly 30,000 training windows —
+# similar scale to CASIA-B. 40 epochs is sufficient.
+# ---------------------------------------------------------------------------
+training:
+  epochs: 40
+  batch_size: 16
+  num_workers: 4
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-4
+  grad_clip: 1.0
+  lambda_det: 1.0
+  lambda_sev: 1.0
+  scheduler:
+    type: "cosine"
+    warmup_epochs: 3
+    eta_min: 1.0e-6
+  amp: true
+  seed: 42
+  early_stopping:
+    patience: 10
+    min_delta: 1.0e-4
+    monitor: "val_f1"
+
+extra_heads:
+  lambda_region: 1.0
+  lambda_conf: 1.0
+
+checkpoint:
+  dir: "checkpoints/sustech1k"
+  save_best: true
+  save_last: true
+  resume: ""
+
+logging:
+  tensorboard_dir: "outputs/tensorboard_sustech1k"
+  log_file: "outputs/sustech1k_train.log"
+  log_interval: 20
+
+output:
+  dir: "outputs"
+  visualization_dir: "outputs/visualizations_sustech1k"
+
+gpu:
+  device: "cuda"
+  cudnn_benchmark: true
