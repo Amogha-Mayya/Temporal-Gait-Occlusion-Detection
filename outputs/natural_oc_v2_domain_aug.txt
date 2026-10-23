@@ -1,0 +1,50 @@
+======================================================================
+  NATURAL OCCLUSION EVALUATION — SUSTech1K
+  Checkpoint : checkpoints/sustech1k/best_model.pth
+  Config     : configs/sustech1k.yaml
+  4-head     : False
+  Test subjects : 800
+======================================================================
+
+IMPORTANT: Model was trained on SYNTHETIC occlusion only.
+This evaluation uses REAL NATURAL occlusion sequences (no injection).
+A good result here demonstrates genuine generalisation.
+
+──────────────────────────────────────────────────────────────────────
+  1. CLEAN SEQUENCES (00-nm condition) — Expected: model says clean
+──────────────────────────────────────────────────────────────────────
+  Samples     : 739,290 frames
+  Accuracy    : 0.9975
+  False Positive Rate : 0.0025
+  (FP = model incorrectly flagging a clean frame as occluded)
+
+──────────────────────────────────────────────────────────────────────
+  2. PURE OCCLUSION (01-oc condition) — Expected: model says occluded
+──────────────────────────────────────────────────────────────────────
+  Samples     : 41,100 frames
+  Accuracy    : 0.0167
+  Precision   : 1.0000
+  Recall      : 0.0167
+  F1 Score    : 0.0329
+  TP=688  FP=0  TN=0  FN=40412
+
+──────────────────────────────────────────────────────────────────────
+  3. ALL OC CONDITIONS (01-oc + 01-cr-oc + 01-uf-oc)
+──────────────────────────────────────────────────────────────────────
+  Samples     : 52,890 frames
+  Accuracy    : 0.0157
+  Precision   : 1.0000
+  Recall      : 0.0157
+  F1 Score    : 0.0309
+
+──────────────────────────────────────────────────────────────────────
+  4. COMBINED (NM + OC) — Full binary detection evaluation
+──────────────────────────────────────────────────────────────────────
+  Total frames : 780,390
+  Accuracy     : 0.9458
+  Precision    : 0.2714
+  Recall       : 0.0167
+  F1 Score     : 0.0315
+  TP=688  FP=1847  TN=737443  FN=40412
+
+======================================================================

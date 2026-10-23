@@ -111,3 +111,107 @@
 [2026-08-31 12:36:28] [INFO] [Epoch 039] Val   loss=0.1630 acc=0.9501 f1=0.8934 mae=0.0192
 [2026-08-31 12:36:29] [INFO] Early stopping.
 [2026-08-31 12:36:29] [INFO] Training complete. Best F1: 0.8980
+[2026-10-22 16:42:54] [INFO] Logger initialised. Log file: outputs/sustech1k_train.log
+[2026-10-22 16:42:54] [INFO] TensorBoard dir: outputs/tensorboard_sustech1k
+[2026-10-22 16:42:54] [INFO] Config: configs/sustech1k.yaml | Device: cuda
+[2026-10-22 16:42:54] [INFO] Building SUSTech1K datasets (NM condition, synthetic occlusion)...
+[2026-10-22 16:42:56] [INFO] Train: 13294 samples | Val: 2528 samples
+[2026-10-22 16:42:58] [INFO] Trainable params: 13,607,618
+[2026-10-22 16:48:40] [INFO] [Epoch 000] Train loss=0.2592 f1=0.7964 mae=0.0878
+[2026-10-22 16:49:02] [INFO] [Epoch 000] Val   loss=0.2213 acc=0.9264 f1=0.8218 mae=0.0404
+[2026-10-22 16:49:02] [INFO]   ✓ Saved best (epoch=0, f1=0.8218)
+[2026-10-22 16:51:36] [INFO] [Epoch 001] Train loss=0.2126 f1=0.8370 mae=0.0459
+[2026-10-22 16:51:51] [INFO] [Epoch 001] Val   loss=0.2089 acc=0.9309 f1=0.8373 mae=0.0344
+[2026-10-22 16:51:53] [INFO]   ✓ Saved best (epoch=1, f1=0.8373)
+[2026-10-22 16:54:21] [INFO] [Epoch 002] Train loss=0.2081 f1=0.8398 mae=0.0433
+[2026-10-22 16:54:34] [INFO] [Epoch 002] Val   loss=0.2023 acc=0.9318 f1=0.8395 mae=0.0415
+[2026-10-22 16:54:35] [INFO]   ✓ Saved best (epoch=2, f1=0.8395)
+[2026-10-22 16:57:03] [INFO] [Epoch 003] Train loss=0.1985 f1=0.8493 mae=0.0414
+[2026-10-22 16:57:17] [INFO] [Epoch 003] Val   loss=0.2046 acc=0.9322 f1=0.8432 mae=0.0297
+[2026-10-22 16:57:17] [INFO]   ✓ Saved best (epoch=3, f1=0.8432)
+[2026-10-22 16:59:45] [INFO] [Epoch 004] Train loss=0.1944 f1=0.8544 mae=0.0389
+[2026-10-22 16:59:58] [INFO] [Epoch 004] Val   loss=0.2048 acc=0.9306 f1=0.8407 mae=0.0304
+[2026-10-22 17:02:25] [INFO] [Epoch 005] Train loss=0.1917 f1=0.8597 mae=0.0367
+[2026-10-22 17:02:39] [INFO] [Epoch 005] Val   loss=0.1968 acc=0.9375 f1=0.8542 mae=0.0390
+[2026-10-22 17:02:39] [INFO]   ✓ Saved best (epoch=5, f1=0.8542)
+[2026-10-22 17:05:07] [INFO] [Epoch 006] Train loss=0.1865 f1=0.8631 mae=0.0368
+[2026-10-22 17:05:20] [INFO] [Epoch 006] Val   loss=0.1960 acc=0.9382 f1=0.8520 mae=0.0263
+[2026-10-22 17:07:48] [INFO] [Epoch 007] Train loss=0.1786 f1=0.8704 mae=0.0356
+[2026-10-22 17:08:01] [INFO] [Epoch 007] Val   loss=0.1898 acc=0.9401 f1=0.8616 mae=0.0278
+[2026-10-22 17:08:02] [INFO]   ✓ Saved best (epoch=7, f1=0.8616)
+[2026-10-22 17:10:30] [INFO] [Epoch 008] Train loss=0.1823 f1=0.8680 mae=0.0346
+[2026-10-22 17:10:43] [INFO] [Epoch 008] Val   loss=0.1703 acc=0.9468 f1=0.8734 mae=0.0321
+[2026-10-22 17:10:46] [INFO]   ✓ Saved best (epoch=8, f1=0.8734)
+[2026-10-22 17:13:13] [INFO] [Epoch 009] Train loss=0.1769 f1=0.8736 mae=0.0342
+[2026-10-22 17:13:26] [INFO] [Epoch 009] Val   loss=0.1746 acc=0.9456 f1=0.8729 mae=0.0329
+[2026-10-22 17:15:54] [INFO] [Epoch 010] Train loss=0.1770 f1=0.8732 mae=0.0336
+[2026-10-22 17:16:07] [INFO] [Epoch 010] Val   loss=0.1869 acc=0.9390 f1=0.8650 mae=0.0252
+[2026-10-22 17:18:36] [INFO] [Epoch 011] Train loss=0.1787 f1=0.8760 mae=0.0340
+[2026-10-22 17:18:49] [INFO] [Epoch 011] Val   loss=0.1821 acc=0.9440 f1=0.8715 mae=0.0254
+[2026-10-22 17:21:18] [INFO] [Epoch 012] Train loss=0.1741 f1=0.8769 mae=0.0327
+[2026-10-22 17:21:31] [INFO] [Epoch 012] Val   loss=0.1798 acc=0.9449 f1=0.8742 mae=0.0266
+[2026-10-22 17:21:32] [INFO]   ✓ Saved best (epoch=12, f1=0.8742)
+[2026-10-22 17:24:00] [INFO] [Epoch 013] Train loss=0.1754 f1=0.8769 mae=0.0313
+[2026-10-22 17:24:14] [INFO] [Epoch 013] Val   loss=0.1759 acc=0.9454 f1=0.8793 mae=0.0264
+[2026-10-22 17:24:14] [INFO]   ✓ Saved best (epoch=13, f1=0.8793)
+[2026-10-22 17:26:44] [INFO] [Epoch 014] Train loss=0.1713 f1=0.8809 mae=0.0299
+[2026-10-22 17:26:57] [INFO] [Epoch 014] Val   loss=0.1787 acc=0.9435 f1=0.8698 mae=0.0246
+[2026-10-22 17:29:25] [INFO] [Epoch 015] Train loss=0.1745 f1=0.8769 mae=0.0300
+[2026-10-22 17:29:38] [INFO] [Epoch 015] Val   loss=0.1767 acc=0.9449 f1=0.8797 mae=0.0301
+[2026-10-22 17:29:39] [INFO]   ✓ Saved best (epoch=15, f1=0.8797)
+[2026-10-22 17:34:30] [INFO] [Epoch 016] Train loss=0.1736 f1=0.8784 mae=0.0296
+[2026-10-22 17:34:51] [INFO] [Epoch 016] Val   loss=0.1781 acc=0.9456 f1=0.8761 mae=0.0240
+[2026-10-22 17:40:18] [INFO] [Epoch 017] Train loss=0.1709 f1=0.8813 mae=0.0297
+[2026-10-22 17:40:39] [INFO] [Epoch 017] Val   loss=0.1653 acc=0.9488 f1=0.8830 mae=0.0275
+[2026-10-22 17:40:39] [INFO]   ✓ Saved best (epoch=17, f1=0.8830)
+[2026-10-22 17:44:25] [INFO] [Epoch 018] Train loss=0.1717 f1=0.8801 mae=0.0288
+[2026-10-22 17:44:38] [INFO] [Epoch 018] Val   loss=0.1643 acc=0.9499 f1=0.8830 mae=0.0348
+[2026-10-22 17:47:05] [INFO] [Epoch 019] Train loss=0.1697 f1=0.8849 mae=0.0278
+[2026-10-22 17:47:19] [INFO] [Epoch 019] Val   loss=0.1728 acc=0.9472 f1=0.8819 mae=0.0252
+[2026-10-22 17:49:48] [INFO] [Epoch 020] Train loss=0.1627 f1=0.8877 mae=0.0279
+[2026-10-22 17:50:01] [INFO] [Epoch 020] Val   loss=0.1709 acc=0.9473 f1=0.8778 mae=0.0234
+[2026-10-22 17:52:28] [INFO] [Epoch 021] Train loss=0.1625 f1=0.8870 mae=0.0266
+[2026-10-22 17:52:41] [INFO] [Epoch 021] Val   loss=0.1699 acc=0.9484 f1=0.8846 mae=0.0231
+[2026-10-22 17:52:42] [INFO]   ✓ Saved best (epoch=21, f1=0.8846)
+[2026-10-22 17:55:09] [INFO] [Epoch 022] Train loss=0.1643 f1=0.8869 mae=0.0270
+[2026-10-22 17:55:22] [INFO] [Epoch 022] Val   loss=0.1744 acc=0.9469 f1=0.8810 mae=0.0228
+[2026-10-22 17:57:49] [INFO] [Epoch 023] Train loss=0.1622 f1=0.8895 mae=0.0268
+[2026-10-22 17:58:02] [INFO] [Epoch 023] Val   loss=0.1675 acc=0.9497 f1=0.8818 mae=0.0230
+[2026-10-22 18:00:30] [INFO] [Epoch 024] Train loss=0.1598 f1=0.8879 mae=0.0259
+[2026-10-22 18:00:43] [INFO] [Epoch 024] Val   loss=0.1703 acc=0.9482 f1=0.8860 mae=0.0212
+[2026-10-22 18:00:43] [INFO]   ✓ Saved best (epoch=24, f1=0.8860)
+[2026-10-22 18:03:10] [INFO] [Epoch 025] Train loss=0.1581 f1=0.8927 mae=0.0255
+[2026-10-22 18:03:24] [INFO] [Epoch 025] Val   loss=0.1664 acc=0.9504 f1=0.8889 mae=0.0243
+[2026-10-22 18:03:24] [INFO]   ✓ Saved best (epoch=25, f1=0.8889)
+[2026-10-22 18:05:51] [INFO] [Epoch 026] Train loss=0.1618 f1=0.8902 mae=0.0246
+[2026-10-22 18:06:05] [INFO] [Epoch 026] Val   loss=0.1582 acc=0.9516 f1=0.8897 mae=0.0202
+[2026-10-22 18:06:05] [INFO]   ✓ Saved best (epoch=26, f1=0.8897)
+[2026-10-22 18:08:32] [INFO] [Epoch 027] Train loss=0.1600 f1=0.8907 mae=0.0244
+[2026-10-22 18:08:45] [INFO] [Epoch 027] Val   loss=0.1655 acc=0.9487 f1=0.8879 mae=0.0207
+[2026-10-22 18:11:13] [INFO] [Epoch 028] Train loss=0.1573 f1=0.8926 mae=0.0244
+[2026-10-22 18:11:25] [INFO] [Epoch 028] Val   loss=0.1639 acc=0.9503 f1=0.8841 mae=0.0227
+[2026-10-22 18:13:53] [INFO] [Epoch 029] Train loss=0.1599 f1=0.8916 mae=0.0243
+[2026-10-22 18:14:06] [INFO] [Epoch 029] Val   loss=0.1534 acc=0.9536 f1=0.8978 mae=0.0209
+[2026-10-22 18:14:06] [INFO]   ✓ Saved best (epoch=29, f1=0.8978)
+[2026-10-22 18:16:33] [INFO] [Epoch 030] Train loss=0.1573 f1=0.8933 mae=0.0237
+[2026-10-22 18:16:46] [INFO] [Epoch 030] Val   loss=0.1624 acc=0.9517 f1=0.8867 mae=0.0204
+[2026-10-22 18:19:14] [INFO] [Epoch 031] Train loss=0.1558 f1=0.8952 mae=0.0234
+[2026-10-22 18:19:27] [INFO] [Epoch 031] Val   loss=0.1638 acc=0.9502 f1=0.8871 mae=0.0194
+[2026-10-22 18:21:54] [INFO] [Epoch 032] Train loss=0.1602 f1=0.8924 mae=0.0230
+[2026-10-22 18:22:06] [INFO] [Epoch 032] Val   loss=0.1535 acc=0.9535 f1=0.8974 mae=0.0199
+[2026-10-22 18:24:36] [INFO] [Epoch 033] Train loss=0.1617 f1=0.8896 mae=0.0229
+[2026-10-22 18:24:49] [INFO] [Epoch 033] Val   loss=0.1598 acc=0.9526 f1=0.8923 mae=0.0191
+[2026-10-22 18:27:16] [INFO] [Epoch 034] Train loss=0.1565 f1=0.8946 mae=0.0228
+[2026-10-22 18:27:29] [INFO] [Epoch 034] Val   loss=0.1556 acc=0.9534 f1=0.8910 mae=0.0200
+[2026-10-22 18:29:56] [INFO] [Epoch 035] Train loss=0.1584 f1=0.8932 mae=0.0228
+[2026-10-22 18:30:08] [INFO] [Epoch 035] Val   loss=0.1583 acc=0.9515 f1=0.8920 mae=0.0185
+[2026-10-22 18:35:28] [INFO] [Epoch 036] Train loss=0.1545 f1=0.8955 mae=0.0229
+[2026-10-22 18:35:56] [INFO] [Epoch 036] Val   loss=0.1602 acc=0.9508 f1=0.8923 mae=0.0198
+[2026-10-22 18:41:29] [INFO] [Epoch 037] Train loss=0.1521 f1=0.8979 mae=0.0227
+[2026-10-22 18:41:50] [INFO] [Epoch 037] Val   loss=0.1505 acc=0.9550 f1=0.8957 mae=0.0193
+[2026-10-22 18:45:52] [INFO] [Epoch 038] Train loss=0.1511 f1=0.8994 mae=0.0229
+[2026-10-22 18:46:05] [INFO] [Epoch 038] Val   loss=0.1577 acc=0.9523 f1=0.8913 mae=0.0195
+[2026-10-22 18:48:32] [INFO] [Epoch 039] Train loss=0.1485 f1=0.9010 mae=0.0227
+[2026-10-22 18:48:45] [INFO] [Epoch 039] Val   loss=0.1642 acc=0.9491 f1=0.8913 mae=0.0192
+[2026-10-22 18:48:45] [INFO] Early stopping.
+[2026-10-22 18:48:45] [INFO] Training complete. Best F1: 0.8978
