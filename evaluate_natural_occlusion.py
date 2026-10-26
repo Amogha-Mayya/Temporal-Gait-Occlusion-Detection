@@ -153,7 +153,7 @@ def main():
         model = build_model(cfg).to(device)
         state = torch.load(args.checkpoint, map_location=str(device))
         model_state = state["model"] if "model" in state else state
-        model.load_state_dict(model_state)
+        model.load_state_dict(model_state, strict=False)
     model.eval()
     print(f"Model loaded. 4-head mode: {args.four_heads}")
 

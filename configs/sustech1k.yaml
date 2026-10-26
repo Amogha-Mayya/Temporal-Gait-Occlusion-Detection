@@ -51,6 +51,9 @@ occlusion:
     - moving_temporal
     - partial_body
     - multi_block
+    - silhouette_merge
+    - edge_noise
+    - vertical_stripe
   rect:
     min_ratio: 0.10
     max_ratio: 0.45
@@ -64,6 +67,12 @@ occlusion:
   multi_block:
     n_blocks: 5
     block_size_ratio: 0.12
+  silhouette_merge: {}
+  edge_noise: {}
+  vertical_stripe:
+    n_stripes: 2
+    min_width: 3
+    max_width: 10
   temporal:
     min_event_length: 5
     max_event_length: 20
