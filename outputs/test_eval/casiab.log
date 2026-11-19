@@ -1,0 +1,36 @@
+occlusion types: ['rectangle', 'random_blocks', 'moving_temporal', 'partial_body', 'multi_block'] | fallback samplers: True
+[casiab] test windows: 11,146
+/home/himanshu/miniconda3/lib/python3.13/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+loaded checkpoints/best_model_4heads.pth
+  batch 0/349
+  batch 50/349
+  batch 100/349
+  batch 150/349
+  batch 200/349
+  batch 250/349
+  batch 300/349
+inference done in 1.0 min
+
+===== CASIA-B TEST (25 subjects, 11,146 windows, 334,380 frames) =====
+  det_accuracy             0.9545 [0.9521, 0.9565]
+  det_precision            0.9536 [0.9486, 0.9582]
+  det_recall               0.8511 [0.8443, 0.8578]
+  det_f1                   0.8994 [0.8943, 0.9038]
+  det_specificity          0.9870 [0.9856, 0.9882]
+  det_balanced_accuracy    0.9190 [0.9155, 0.9225]
+  det_mcc                  0.8725 [0.8661, 0.8779]
+  sev_mae                  0.0155 [0.0149, 0.0162]
+  sev_rmse                 0.0238 [0.0228, 0.0250]
+  region_macro_f1          0.9239 [0.9207, 0.9269]
+  region_upper_f1          0.9397 [0.9340, 0.9451]
+  region_lower_f1          0.9274 [0.9229, 0.9316]
+  region_left_f1           0.9100 [0.9038, 0.9159]
+  region_right_f1          0.9185 [0.9141, 0.9226]
+  conf_mae                 0.0266 [0.0259, 0.0273]
+  det_roc_auc              0.9593
+  det_pr_auc               0.9409
+  det_ece                  0.0056
+  sev_r2                   0.9787
+  sev_pearson_r            0.9893
+saved to outputs/test_eval/casiab

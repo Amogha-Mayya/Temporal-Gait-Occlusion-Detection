@@ -1,0 +1,57 @@
+occlusion types: ['rectangle', 'random_blocks', 'moving_temporal', 'partial_body', 'multi_block'] | fallback samplers: True
+[sustech1k] test windows: 44,402
+/home/himanshu/miniconda3/lib/python3.13/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+loaded checkpoints/sustech1k/best_model_4heads.pth
+  batch 0/1388
+  batch 50/1388
+  batch 100/1388
+  batch 150/1388
+  batch 200/1388
+  batch 250/1388
+  batch 300/1388
+  batch 350/1388
+  batch 400/1388
+  batch 450/1388
+  batch 500/1388
+  batch 550/1388
+  batch 600/1388
+  batch 650/1388
+  batch 700/1388
+  batch 750/1388
+  batch 800/1388
+  batch 850/1388
+  batch 900/1388
+  batch 950/1388
+  batch 1000/1388
+  batch 1050/1388
+  batch 1100/1388
+  batch 1150/1388
+  batch 1200/1388
+  batch 1250/1388
+  batch 1300/1388
+  batch 1350/1388
+inference done in 3.9 min
+
+===== SUSTech1K TEST (797 subjects, 44,402 windows, 1,332,060 frames) =====
+  det_accuracy             0.9536 [0.9523, 0.9547]
+  det_precision            0.9631 [0.9611, 0.9651]
+  det_recall               0.8391 [0.8351, 0.8430]
+  det_f1                   0.8968 [0.8942, 0.8994]
+  det_specificity          0.9898 [0.9892, 0.9904]
+  det_balanced_accuracy    0.9144 [0.9124, 0.9165]
+  det_mcc                  0.8705 [0.8672, 0.8736]
+  sev_mae                  0.0183 [0.0179, 0.0187]
+  sev_rmse                 0.0316 [0.0301, 0.0332]
+  region_macro_f1          0.9206 [0.9190, 0.9221]
+  region_upper_f1          0.9265 [0.9237, 0.9292]
+  region_lower_f1          0.9240 [0.9216, 0.9262]
+  region_left_f1           0.9128 [0.9102, 0.9153]
+  region_right_f1          0.9193 [0.9168, 0.9217]
+  conf_mae                 0.0278 [0.0275, 0.0282]
+  det_roc_auc              0.9572
+  det_pr_auc               0.9380
+  det_ece                  0.0055
+  sev_r2                   0.9628
+  sev_pearson_r            0.9814
+saved to outputs/test_eval/sustech1k_5types

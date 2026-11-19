@@ -1,0 +1,57 @@
+occlusion types: ['rectangle', 'random_blocks', 'moving_temporal', 'partial_body', 'multi_block', 'silhouette_merge', 'edge_noise', 'vertical_stripe'] | fallback samplers: True
+[sustech1k] test windows: 44,402
+/home/himanshu/miniconda3/lib/python3.13/site-packages/torch/nn/modules/transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+loaded checkpoints/sustech1k/best_model_4heads.pth
+  batch 0/1388
+  batch 50/1388
+  batch 100/1388
+  batch 150/1388
+  batch 200/1388
+  batch 250/1388
+  batch 300/1388
+  batch 350/1388
+  batch 400/1388
+  batch 450/1388
+  batch 500/1388
+  batch 550/1388
+  batch 600/1388
+  batch 650/1388
+  batch 700/1388
+  batch 750/1388
+  batch 800/1388
+  batch 850/1388
+  batch 900/1388
+  batch 950/1388
+  batch 1000/1388
+  batch 1050/1388
+  batch 1100/1388
+  batch 1150/1388
+  batch 1200/1388
+  batch 1250/1388
+  batch 1300/1388
+  batch 1350/1388
+inference done in 3.9 min
+
+===== SUSTech1K TEST (797 subjects, 44,402 windows, 1,332,060 frames) =====
+  det_accuracy             0.8936 [0.8919, 0.8955]
+  det_precision            0.9589 [0.9565, 0.9613]
+  det_recall               0.5817 [0.5763, 0.5876]
+  det_f1                   0.7242 [0.7198, 0.7287]
+  det_specificity          0.9921 [0.9916, 0.9926]
+  det_balanced_accuracy    0.7869 [0.7842, 0.7898]
+  det_mcc                  0.6949 [0.6905, 0.6993]
+  sev_mae                  0.0894 [0.0876, 0.0911]
+  sev_rmse                 0.1660 [0.1632, 0.1684]
+  region_macro_f1          0.7025 [0.6981, 0.7072]
+  region_upper_f1          0.6980 [0.6923, 0.7038]
+  region_lower_f1          0.6987 [0.6938, 0.7041]
+  region_left_f1           0.7026 [0.6976, 0.7079]
+  region_right_f1          0.7108 [0.7058, 0.7155]
+  conf_mae                 0.0515 [0.0508, 0.0521]
+  det_roc_auc              0.8741
+  det_pr_auc               0.8094
+  det_ece                  0.0632
+  sev_r2                   0.0237
+  sev_pearson_r            0.5758
+saved to outputs/test_eval/sustech1k
