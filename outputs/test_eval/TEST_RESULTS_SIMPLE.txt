@@ -1,0 +1,122 @@
+==============================================================================
+  OCCLUSION DETECTION - TEST RESULTS (3 DATASETS)
+  Model: ResNet-18 + Temporal Transformer, 4 heads (detection, severity, region, confidence)
+  GPU: Tesla V100 | Input: 30 frames, 128x88 | Synthetic occlusion, prob 0.6 | Threshold 0.5
+==============================================================================
+
+
+==============================================================================
+  DATASET 1 : CASIA-B
+==============================================================================
+
+  GENERAL INFO
+    Subjects             124  (train 1-74 | val 75-99 | test 100-124)
+    Train / Val samples  32,863 / 10,615
+    Phase 1 (detection + severity):  60 epochs max, early stop patience 15, BEST EPOCH 46
+    Phase 2 (region + confidence):   8 epochs, BEST EPOCH 5, backbone frozen
+    Learning rate        1e-4 (phase 1), 1e-3 (phase 2) | AdamW | batch size 16
+
+------------------------------------------------------------------------------
+  TEST RESULTS
+------------------------------------------------------------------------------
+  Test set: 25 subjects | 11,146 windows | 334,380 frames
+
+  DETECTION                     value     95% CI
+    Accuracy                0.9545   [0.9521, 0.9565]
+    Precision               0.9536   [0.9486, 0.9582]
+    Recall                  0.8511   [0.8443, 0.8578]
+    F1 score                0.8994   [0.8943, 0.9038]
+
+  SEVERITY (occluded frames)
+    MAE                     0.0155   [0.0149, 0.0162]
+    RMSE                    0.0238   [0.0228, 0.0250]
+
+  REGION (F1)
+    Upper                   0.9397
+    Lower                   0.9274
+    Left                    0.9100
+    Right                   0.9185
+    Macro average           0.9239
+
+  CONFIDENCE
+    MAE                     0.0266   [0.0259, 0.0273]
+
+
+==============================================================================
+  DATASET 2 : OU-MVLP
+==============================================================================
+
+  GENERAL INFO
+    Subjects             10,307  (train 1-4000 | val 4001-5153 | test 5154-10307)
+    Views used           6 of 14 (000, 015, 030, 045, 060, 075)
+    Train / Val samples  143,508 / 40,470
+    Phase 1 (detection + severity):  30 epochs, early stop patience 15, BEST EPOCH 28
+    Phase 2 (region + confidence):   8 epochs, BEST EPOCH 6, backbone frozen
+    Learning rate        1e-4 (phase 1), 1e-3 (phase 2) | AdamW | batch size 32
+
+------------------------------------------------------------------------------
+  RESULTS (validation split)
+------------------------------------------------------------------------------
+  Validation set: 40,470 samples
+
+  DETECTION
+    Accuracy                0.8583
+    F1 score                0.5948
+
+  SEVERITY (occluded frames)
+    MAE                     0.0103
+    RMSE                    0.0226
+
+  REGION (F1)
+    Upper                   0.9274
+    Lower                   0.9114
+    Left                    0.7137
+    Right                   0.8155
+    Macro average           0.8420
+
+  CONFIDENCE
+    MAE                     0.0618
+
+
+==============================================================================
+  DATASET 3 : SUSTech1K
+==============================================================================
+
+  GENERAL INFO
+    Subjects             1,050  (train 0-249 | test 250-1049, 797 present on disk)
+    Train / Val samples  13,294 / 2,528   (val = subjects 200-249, overlaps train, NOT independent)
+    Phase 1 (detection + severity):  40 epochs (early stopped), patience 15, BEST EPOCH 32
+    Phase 2 (region + confidence):   8 epochs, BEST EPOCH 6, backbone frozen
+    Learning rate        1e-4 (phase 1), 1e-3 (phase 2) | AdamW | batch size 16
+    Test occlusion       the 5 original synthetic types (rectangle, random blocks, moving,
+                         partial body, multi-block)
+
+------------------------------------------------------------------------------
+  TEST RESULTS
+------------------------------------------------------------------------------
+  Test set: 797 subjects | 44,402 windows | 1,332,060 frames
+
+  DETECTION                     value     95% CI
+    Accuracy                0.9536   [0.9523, 0.9547]
+    Precision               0.9631   [0.9611, 0.9651]
+    Recall                  0.8391   [0.8351, 0.8430]
+    F1 score                0.8968   [0.8942, 0.8994]
+
+  SEVERITY (occluded frames)
+    MAE                     0.0183   [0.0179, 0.0187]
+    RMSE                    0.0316   [0.0301, 0.0332]
+
+  REGION (F1)
+    Upper                   0.9265
+    Lower                   0.9240
+    Left                    0.9128
+    Right                   0.9193
+    Macro average           0.9206
+
+  CONFIDENCE
+    MAE                     0.0278   [0.0275, 0.0282]
+
+==============================================================================
+  Notes
+==============================================================================
+  - 95% CI = subject-level bootstrap. Threshold 0.5, nothing tuned on the test set.
